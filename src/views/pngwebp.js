@@ -19,7 +19,6 @@ const UxComponent = () => {
   const handleOutputFormatChange = (event) => {
     setOutputFormat(event.target.value);
   };
-
   const convertir = async () => {
     const formData = new FormData();
     formData.append("inputFormat", inputFormat);
@@ -34,10 +33,22 @@ const UxComponent = () => {
       const response = await axios.post(
         "http://192.168.1.121:4001/api/image-converter",
         formData,
-        { headers: { "Content-Type": "multipart/form-data" } }
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+          responseType: "blob",
+        } // Agregar responseType: "blob" para recibir la respuesta como blob
       );
-      // Manejar la respuesta de la API
-      console.log(response.data);
+
+      // Crear un enlace para descargar el archivo
+      const downloadLink = document.createElement("a");
+      const blob = new Blob([response.data]);
+      const url = URL.createObjectURL(blob);
+      downloadLink.href = url;
+      downloadLink.download = "converted_images.zip"; // Nombre del archivo descargado
+      downloadLink.click();
+
+      // Limpiar el objeto URL y liberar memoria
+      URL.revokeObjectURL(url);
     } catch (error) {
       // Manejar el error de la API
       console.error(error);
