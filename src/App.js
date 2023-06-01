@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+//librerias
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+//componentes de dashboard
+import Header from "./dashboard/Header";
+import Footer from "./dashboard/Footer";
+//componentes generales
+import UtilsGrid from "./components/home/UtilsGrid";
+//views
+import QR from "./views/qr";
+import BARCODE from "./views/barcode";
+import PNGWEBP from "./views/pngwebp";
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <div className="container">
+        <Routes>
+          <Route path="/qr-generator" element={<QR />} />
+          <Route path="/barcode-generator" element={<BARCODE />} />
+          <Route path="/" element={<PNGWEBP />} />
+        </Routes>
+        <UtilsGrid />
+      </div>
+      <Footer />
+    </Router>
   );
 }
-
-export default App;
