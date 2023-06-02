@@ -19,7 +19,7 @@ export default function App() {
         <Routes>
           <Route path="/qr-generator" element={<QR />} />
           <Route path="/barcode-generator" element={<BARCODE />} />
-          <Route path="/" element={<PNGWEBP />} />
+          <Route path="/mis-utilidades/" element={<PNGWEBP />} />
         </Routes>
         <UtilsGrid />
       </div>
