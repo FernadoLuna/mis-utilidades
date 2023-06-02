@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-
+import { API_URL } from "../utils/constants";
 const UxComponent = () => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [outputFormat, setOutputFormat] = useState("");
@@ -25,7 +25,7 @@ const UxComponent = () => {
 
     try {
       const response = await axios.post(
-        "http://192.168.1.121:4001/api/image-converter",
+        `${API_URL}/api/image-converter`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
