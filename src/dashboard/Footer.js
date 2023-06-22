@@ -8,8 +8,8 @@ export default function Footer() {
           <div className="col-lg-6 col-md-12 mb-4 mb-md-0">
             <h5 className="text-uppercase">Sobre Nosotros</h5>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              interdum purus ut faucibus consequat.
+              Hemos estado en tu posición y sabemos lo que necesitas por lo que
+              desarrollamos herramientas utiles para ti y para tu e-commerce.
             </p>
           </div>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
@@ -63,7 +63,8 @@ export default function Footer() {
         className="text-center p-3"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
-        © {new Date().getFullYear()} Mi Sitio. Todos los derechos reservados.
+        © {new Date().getFullYear()} Mis Utilidades. Todos los derechos
+        reservados.
       </div>
     </footer>
   );
