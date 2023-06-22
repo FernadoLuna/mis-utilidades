@@ -22,7 +22,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#!" className="text-dark">
-                  Acerca
+                  Acerca de
                 </a>
               </li>
               <li>
